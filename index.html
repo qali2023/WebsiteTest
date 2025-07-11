@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediCare Hospital</title>
+   <style>
+   
+:root {
+    --primary: #0d6efd;
+    --primary-dark: #0b5ed7;
+    --secondary: #6c757d;
+    --light: #f8f9fa;
+    --dark: #212529;
+    --white: #ffffff;
+    --danger: #dc3545;
+    --success: #198754;
+    --warning: #ffc107;
+    --info: #0dcaf0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--dark);
+    background: var(--white);
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary);
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+section {
+    padding: 80px 0;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    text-align: center;
+    color: var(--dark);
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--primary);
+    border-radius: 2px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--secondary);
+    margin-bottom: 50px;
+    font-size: 1.1rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(13, 110, 253, 0.3);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+}
+
+.btn-secondary:hover {
+    background: var(--primary);
+    color: var(--white);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(13, 110, 253, 0.3);
+}
+
+/* Top Header */
+.top-header {
+    background: var(--primary);
+    color: var(--white);
+    padding: 10px 0;
+    font-size: 0.9rem;
+}
+
+.top-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-contact span {
+    margin-right: 20px;
+}
+
+.header-contact i {
+    margin-right: 5px;
+}
+
+.header-social a {
+    color: var(--white);
+    margin-left: 15px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.header-social a:hover {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Main Header */
+header {
+    background: var(--white);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo i {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-right: 10px;
+}
+
+.logo h1 {
+    font-size: 1.5rem;
+    color: var(--dark);
+}
+
+.logo span {
+    color: var(--primary);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    color: var(--dark);
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+nav ul li a:hover {
+    color: var(--primary);
+}
+
+.appointment-btn {
+    background: var(--primary);
+    color: var(--white);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.appointment-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(13, 110, 253, 0.3);
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1581056771107-24ca5f033842?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: var(--white);
+    margin-top: 0;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.9;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+/* Emergency Bar */
+.emergency-bar {
+    background: var(--primary);
+    color: var(--white);
+    padding: 30px 0;
+    margin-top: -80px;
+    position: relative;
+    z-index: 10;
+}
+
+.emergency-bar .container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.emergency-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
+    max-width: 30%;
+}
+
+.emergency-item i {
+    font-size: 2.5rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.emergency-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.emergency-item p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* About Section */
+.about-section .container {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+}
+
+.about-image {
+    flex: 1;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+}
+
+.about-content {
+    flex: 1;
+}
+
+.about-content p {
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--secondary);
+}
+
+.about-features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.feature {
+    background: var(--light);
+    padding: 20px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.feature i {
+    font-size: 1.8rem;
+    color: var(--primary);
+    margin-bottom: 15px;
+}
+
+.feature h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.feature p {
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
+/* Services Section */
+.services-section {
+    background: var(--light);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.service-card i {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.service-card p {
+    color: var(--secondary);
+    margin-bottom: 20px;
+    line-height: 1.7;
+}
+
+.service-card a {
+    color: var(--primary);
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.service-card a i {
+    font-size: 0.9rem;
+    margin-left: 5px;
+    transition: all 0.3s ease;
+}
+
+.service-card a:hover {
+    color: var(--primary-dark);
+}
+
+.service-card a:hover i {
+    transform: translateX(5px);
+}
+
+/* Doctors Section */
+.doctors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.doctor-card {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.doctor-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.doctor-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 5px solid var(--light);
+}
+
+.doctor-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+}
+
+.doctor-card p {
+    color: var(--primary);
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.doctor-social {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.doctor-social a {
+    width: 35px;
+    height: 35px;
+    background: var(--light);
+    color: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.doctor-social a:hover {
+    background: var(--primary);
+    color: var(--white);
+}
+
+/* Departments Section */
+.departments-section {
+    background: var(--light);
+}
+
+.departments-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.tab {
+    padding: 10px 25px;
+    background: var(--white);
+    color: var(--dark);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.tab.active {
+    background: var(--primary);
+    color: var(--white);
+}
+
+.tab:hover:not(.active) {
+    background: rgba(13, 110, 253, 0.1);
+}
+
+.department-content {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+}
+
+.department-info {
+    flex: 1;
+}
+
+.department-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: var(--dark);
+}
+
+.department-info p {
+    color: var(--secondary);
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.department-info ul {
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.department-info ul li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.department-info ul li i {
+    color: var(--primary);
+    margin-right: 10px;
+}
+
+.department-image {
+    flex: 1;
+}
+
+.department-image img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Appointment Section */
+.appointment-form {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    flex: 1;
+}
+
+
+   </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Top Header Bar -->
+    <div class="top-header">
+        <div class="container">
+            <div class="header-contact">
+                <span><i class="fas fa-phone"></i> Emergency: +252 612466495</span>
+                <span><i class="fas fa-envelope"></i> info@medicare.so</span>
+            </div>
+            <div class="header-social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-hospital"></i>
+                <h1>MediCare <span>Hospital</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#doctors">Doctors</a></li>
+                    <li><a href="#departments">Departments</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="#appointment" class="appointment-btn">Make Appointment</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Quality Healthcare <br>For You and Your Family</h1>
+                <p>24/7 emergency services with modern medical facilities</p>
+                <div class="hero-buttons">
+                    <a href="#appointment" class="btn-primary">Book Appointment</a>
+                    <a href="#departments" class="btn-secondary">Our Departments</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency Info Bar -->
+    <div class="emergency-bar">
+        <div class="container">
+            <div class="emergency-item">
+                <i class="fas fa-phone-alt"></i>
+                <div>
+                    <h3>Emergency Call</h3>
+                    <p>+252 61 2466495</p>
+                </div>
+            </div>
+            <div class="emergency-item">
+                <i class="fas fa-clock"></i>
+                <div>
+                    <h3>Working Hours</h3>
+                    <p>24 Hours / 7 Days</p>
+                </div>
+            </div>
+            <div class="emergency-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                    <h3>Location</h3>
+                    <p>Mogadishu, Somalia</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Hospital Building">
+            </div>
+            <div class="about-content">
+                <h2 class="section-title">About Our Hospital</h2>
+                <p>MediCare Hospital is a leading healthcare provider in Somalia, offering comprehensive medical services with state-of-the-art facilities and experienced medical professionals.</p>
+                
+                <div class="about-features">
+                    <div class="feature">
+                        <i class="fas fa-user-md"></i>
+                        <h3>Qualified Doctors</h3>
+                        <p>Our team consists of highly trained specialists.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-procedures"></i>
+                        <h3>Emergency Care</h3>
+                        <p>24/7 emergency services available.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-flask"></i>
+                        <h3>Modern Lab</h3>
+                        <p>Advanced diagnostic facilities.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-heartbeat"></i>
+                        <h3>Patient Care</h3>
+                        <p>Compassionate and personalized treatment.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <h2 class="section-title">Our Medical Services</h2>
+            <p class="section-subtitle">We provide a wide range of medical services for all your healthcare needs.</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-heartbeat"></i>
+                    <h3>Cardiology</h3>
+                    <p>Comprehensive heart care with advanced diagnostic tools and treatment options.</p>
+                    <a href="#">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-brain"></i>
+                    <h3>Neurology</h3>
+                    <p>Specialized care for disorders of the nervous system and brain.</p>
+                    <a href="#">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-bone"></i>
+                    <h3>Orthopedics</h3>
+                    <p>Treatment for musculoskeletal system injuries and disorders.</p>
+                    <a href="#">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-lungs"></i>
+                    <h3>Pulmonology</h3>
+                    <p>Expert care for respiratory system and lung conditions.</p>
+                    <a href="#">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-baby"></i>
+                    <h3>Pediatrics</h3>
+                    <p>Compassionate healthcare for infants, children and adolescents.</p>
+                    <a href="#">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-x-ray"></i>
+                    <h3>Radiology</h3>
+                    <p>Advanced imaging services for accurate diagnosis.</p>
+                    <a href="#">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doctors Section -->
+    <section id="doctors" class="doctors-section">
+        <div class="container">
+            <h2 class="section-title">Our Specialist Doctors</h2>
+            <p class="section-subtitle">Meet our team of experienced medical professionals.</p>
+            
+            <div class="doctors-grid">
+                <div class="doctor-card">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Dr. Ahmed Mohamed">
+                    <h3>Dr. Ahmed Mohamed</h3>
+                    <p>Cardiologist</p>
+                    <div class="doctor-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="doctor-card">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Dr. Aisha Hassan">
+                    <h3>Dr. Aisha Hassan</h3>
+                    <p>Neurologist</p>
+                    <div class="doctor-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="doctor-card">
+                    <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Dr. Omar Ali">
+                    <h3>Dr. Omar Ali</h3>
+                    <p>Orthopedic Surgeon</p>
+                    <div class="doctor-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="doctor-card">
+                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Dr. Fatima Abdi">
+                    <h3>Dr. qaali muhiidiin</h3>
+                    <p>Pediatrician</p>
+                    <div class="doctor-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Departments Section -->
+    <section id="departments" class="departments-section">
+        <div class="container">
+            <h2 class="section-title">Our Departments</h2>
+            <p class="section-subtitle">Specialized care in various medical fields</p>
+            
+            <div class="departments-tabs">
+                <div class="tab active">Cardiology</div>
+                <div class="tab">Neurology</div>
+                <div class="tab">Orthopedics</div>
+                <div class="tab">Pediatrics</div>
+                <div class="tab">Emergency</div>
+            </div>
+            
+            <div class="department-content">
+                <div class="department-info">
+                    <h3>Cardiology Department</h3>
+                    <p>Our Cardiology Department provides comprehensive care for patients with cardiovascular diseases. We offer advanced diagnostic services including echocardiography, stress testing, and cardiac catheterization.</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> 24/7 Cardiac Emergency Care</li>
+                        <li><i class="fas fa-check"></i> Non-invasive Cardiology</li>
+                        <li><i class="fas fa-check"></i> Interventional Cardiology</li>
+                        <li><i class="fas fa-check"></i> Cardiac Rehabilitation</li>
+                    </ul>
+                </div>
+                <div class="department-image">
+                    <img src="https://images.unsplash.com/photo-1579684453423-f84349ef60b0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Cardiology Department">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appointment Section -->
+    <section id="appointment" class="appointment-section">
+        <div class="container">
+            <h2 class="section-title">Make an Appointment</h2>
+            <p class="section-subtitle">Book your visit with our specialists</p>
+            
+            <form class="appointment-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="tel" placeholder="Your Phone" required>
+                    </div>
+                    <div class="form-group">
+                        <select required>
+                            <option value="">Select Department</option>
+                            <option>Cardiology</option>
+                            <option>Neurology</option>
+                            <option>Orthopedics</option>
+                            <option>Pediatrics</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <select required>
+                            <option value="">Select Doctor</option>
+                            <option>Dr. Ahmed Mohamed</option>
+                            <option>Dr. Aisha Hassan</option>
+                            <option>Dr. Omar Ali</option>
+                            <option>Dr. Fatima Abdi</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="date" required>
+                    </div>
+                </div>
+                <div class="form-group full-width">
+                    <textarea placeholder="Message (Optional)" rows="5"></textarea>
+                </div>
+                <button type="submit" class="btn-primary">Book Appointment</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">Patient Testimonials</h2>
+            <p class="section-subtitle">What our patients say about us</p>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <i class="fas fa-quote-left"></i>
+                        <p>The care I received at MediCare Hospital was exceptional. The doctors were knowledgeable and took time to explain everything to me.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Patient">
+                        <div>
+                            <h4>Mohamed Abdullahi</h4>
+                            <span>Cardiology Patient</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <i class="fas fa-quote-left"></i>
+                        <p>I'm so grateful for the pediatric team. They made my daughter feel comfortable during her treatment.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Patient">
+                        <div>
+                            <h4>Hawa Abdi</h4>
+                            <span>Parent</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <i class="fas fa-quote-left"></i>
+                        <p>The emergency service saved my life. Quick response and professional treatment.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Patient">
+                        <div>
+                            <h4>Ali Hassan</h4>
+                            <span>Emergency Patient</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <p class="section-subtitle">Get in touch with our hospital</p>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Location</h3>
+                            <p>123 Medical Street, Hodan District, Mogadishu, Somalia</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>info@medicare.so</p>
+                            <p>support@medicare.so</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h3>Call Us</h3>
+                            <p>+252 61 4921316 (General)</p>
+                            <p>+252 61 2466495 (Emergency)</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h3>Working Hours</h3>
+                            <p>saturday- wednesday: 8:00 AM - 8:00 PM</p>
+                            <p>thursday - Friday: 9:00 AM - 5:00 PM</p>
+                            <p>Emergency: 24/7</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" placeholder="Your Email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" rows="6" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <div class="map-section">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.808165678511!2d45.33754531533108!3d2.0396729985451425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3d5842591e6a5e0f%3A0x4a47363c3c1b1b1b!2sMogadishu%2C%20Somalia!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-col">
+                    <div class="logo">
+                        <i class="fas fa-hospital"></i>
+                        <h1>MediCare <span>Hospital</span></h1>
+                    </div>
+                    <p>Providing quality healthcare services to our community with compassion and excellence.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#doctors">Doctors</a></li>
+                        <li><a href="#departments">Departments</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li><a href="#">Cardiology</a></li>
+                        <li><a href="#">Neurology</a></li>
+                        <li><a href="#">Orthopedics</a></li>
+                        <li><a href="#">Pediatrics</a></li>
+                        <li><a href="#">Emergency Care</a></li>
+                        <li><a href="#">Diagnostics</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for health tips and updates.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your Email" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025 MediCare Hospital. All Rights Reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
